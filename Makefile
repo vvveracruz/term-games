@@ -14,9 +14,9 @@ snake: clean
 	g++ -std=c++11 -lcurses snake.cpp -o  Snake
 	./Snake
 
-life: clean
-	g++ -lcurses life.cpp -o Life
-	./Life
+bounce3: clean
+	g++ -std=c++11 -lcurses bounce3.cpp -o Bounce3
+	./Bounce3
 
 clean:
-	rm -f ./Hello ./Bounce ./Bounce2 ./Snake
+	rm -f ./Hello ./Bounce ./Bounce2 ./Snake ./Bounce3
