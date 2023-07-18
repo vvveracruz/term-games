@@ -18,5 +18,8 @@ bounce3: clean
 	g++ -std=c++11 -lcurses src/bounce3.cpp -o Bounce3
 	./Bounce3
 
+snakepy: clean
+	pipenv run python src/snake.py
+
 clean:
 	rm -f ./Hello ./Bounce ./Bounce2 ./Snake ./Bounce3
