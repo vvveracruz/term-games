@@ -10,27 +10,31 @@ def generate_coords(maxx, maxy):
     '''Generates a random coordinate pair.'''
     return randint(0, maxx - 1), randint(0, maxy -1 )
 
-def run(stdscr):
+def run(window):
     '''Main function for the game.'''
-    maxx, maxy = stdscr.getmaxyx() # get terminal size
+    maxx, maxy = window.getmaxyx() # get terminal size
 
     while True:
+        window.erase()
         headx, heady = generate_coords(maxx, maxy) # generate head coords
-        stdscr.addch(headx, heady, head_char) # draw head
-        stdscr.refresh()
+        window.addch(headx, heady, head_char) # draw head
+
+        # main game loop goes here
+
+        window.refresh()
         sleep(1)
 
 def main():
     '''Handles curses initialization and cleanup.'''
-    stdscr = curses.initscr()
-    stdscr.keypad(True) # enable keypad mode
+    window = curses.initscr()
+    window.keypad(True) # enable keypad mode
     curses.curs_set(False) # hide cursor
-    run(stdscr)
+    
+    run(window)
 
     # cleanup
     curses.nocbreak()
-    stdscr.keypad(False)
-    curses.echo()
+    window.keypad(False)
     curses.endwin()
 
 main()
